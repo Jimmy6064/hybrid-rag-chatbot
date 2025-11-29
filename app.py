@@ -194,8 +194,6 @@ with col_left:
         if not uploaded:
             st.warning("Upload a PDF first.")
         else:
-            global embs_store, metas
-
             metas_new = ingest_pdf(uploaded, uploaded.name)
             texts = [m["text"] for m in metas_new]
 
@@ -203,6 +201,7 @@ with col_left:
             if embs_new is None:
                 st.error("OPENAI_API_KEY missing — cannot create embeddings.")
             else:
+                # initialize if empty, otherwise stack
                 if embs_store.size == 0:
                     embs_store = embs_new
                 else:
@@ -217,7 +216,6 @@ with col_left:
                 st.success(f"Indexed {len(metas_new)} chunks. Total chunks: {len(metas)}")
 
     if st.button("Clear Index"):
-        global embs_store, metas
         embs_store = np.zeros((0, 1536), dtype="float32")
         metas = []
         if INDEX_PATH.exists(): INDEX_PATH.unlink()
