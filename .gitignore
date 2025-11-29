@@ -1,0 +1,16 @@
+# Python / virtualenv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit cache / index files
+index.faiss
+metas.pkl
+index/
+
+# env
+.env
+.DS_Store
+*.log

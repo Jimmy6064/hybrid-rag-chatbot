@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 streamlit
 python-dotenv
 requests
 openai
 pdfplumber
 nltk
+=======
+streamlit
+sentence-transformers
+faiss-cpu
+pdfplumber
+nltk
+openai
+requests
+python-dotenv
+>>>>>>> 67e5048 (Add full project files (app.py, requirements, README, etc.))
